@@ -64,15 +64,16 @@ const images = [
   },
 ];
 
+const gallery = document.querySelector(".gallery");
 
 
-// <li class="gallery-item">
-//   <a class="gallery-link" href="large-image.jpg">
-//     <img
-//       class="gallery-image"
-//       src="small-image.jpg"
-//       data-source="large-image.jpg"
-//       alt="Image description"
-//     />
-//   </a>
-// </li>
+const imagesImport = images.map(function (image) {
+  return `<li class="gallery-item"><a class="gallery-link" href="large-image.jpg"><img class="gallery-image" src="${image.preview}" data-source="large-image.jpg" alt="${image.description}" height="150"></a></li>`
+});
+
+// li.classList.toggle("gallery-item");
+// a.classList.toggle("gallery-link");
+// img.classList.toggle("gallery-image");
+
+const imageCollection = `${imagesImport.join('')}`;
+gallery.innerHTML = imageCollection;
