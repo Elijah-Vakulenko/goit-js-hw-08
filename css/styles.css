@@ -1,3 +1,10 @@
+$basicLightbox__background: rgba(46, 47, 66, 0.8); // Background color
+$basicLightbox__zIndex: 1000; // Stack order
+$basicLightbox__duration: 0.4s; // Transition duration
+$basicLightbox__timing: ease; // Transition timing
+
+@import "src/styles/main";
+
 /* reset */
 
 ul {
@@ -35,8 +42,4 @@ img {
 .gallery-image:hover {
   transform: scale(1.016, 1.04);
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal {
-  background-color: rgba(46, 47, 66, 0.8);
 }

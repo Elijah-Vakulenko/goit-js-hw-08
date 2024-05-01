@@ -89,16 +89,16 @@ function largeImageOpener(event) {
     return;
   };
 
-   const largeImage = event.target.dataset.source;
+  const largeImage = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
-    <div class="modal">
       <img src="${largeImage}" width="1112" height="640">
-    </div>
   `)
 
   instance.show()
+
 };
+
 
 
 
