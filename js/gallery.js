@@ -68,12 +68,37 @@ const gallery = document.querySelector(".gallery");
 
 
 const imagesImport = images.map(function (image) {
-  return `<li class="gallery-item"><a class="gallery-link" href="large-image.jpg"><img class="gallery-image" src="${image.preview}" data-source="large-image.jpg" alt="${image.description}" height="150"></a></li>`
+  return `
+  <li class="gallery-item">
+    <a class="gallery-link" href="large-image.jpg">
+      <img class="gallery-image" src="${image.preview}" data-source="${image.original}" alt="${image.description}" height="200">
+    </a>
+  </li>`
 });
-
-// li.classList.toggle("gallery-item");
-// a.classList.toggle("gallery-link");
-// img.classList.toggle("gallery-image");
 
 const imageCollection = `${imagesImport.join('')}`;
 gallery.innerHTML = imageCollection;
+
+gallery.addEventListener('click', largeImageOpener);
+
+function largeImageOpener(event) { 
+
+  event.preventDefault();
+
+  if (!event.target.classList.contains("gallery-image")) {
+    return;
+  };
+
+   const largeImage = event.target.dataset.source;
+
+  const instance = basicLightbox.create(`
+    <div class="modal">
+      <img src="${largeImage}" width="1112" height="640">
+    </div>
+  `)
+
+  instance.show()
+};
+
+
+
